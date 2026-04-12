@@ -430,10 +430,12 @@
 
     /* ── RESPONSIVE ───────────────────────────────────────────── */
     @media (max-width: 900px) {
+      html, body { overflow-y: auto; height: auto; }
+      .bg, .bg-overlay, .scanlines, .vignette, .noise, #matrix-canvas { position: fixed; }
       .body-grid { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
       .main-panel  { grid-column:1; grid-row:1; }
       .right-col   { grid-column:1; grid-row:2; }
-      .terminal    { padding:1rem; }
+      .terminal    { padding:1rem; height:auto; min-height:100vh; }
       .artist-name { font-size: clamp(3.5rem, 18vw, 6rem); }
     }
   </style>
@@ -457,7 +459,7 @@
     <div class="boot-line" id="b4">Authenticating release metadata: INGRESS................ OK</div>
     <div class="boot-line" id="b5">Streaming endpoints: Spotify / Beatport / SoundCloud.... OK</div>
     <div class="boot-line" id="b6">EPK gateway: dichromusic.com............................ OK</div>
-    <div class="boot-line" id="b7" class="hi">TRANSMISSION ACTIVE ░░░░░░░░░░░░░░░░░░░░ SIGNAL ACQUIRED</div>
+    <div class="boot-line hi" id="b7">TRANSMISSION ACTIVE ░░░░░░░░░░░░░░░░░░░░ SIGNAL ACQUIRED</div>
     <div id="boot-bar"><div id="boot-bar-fill"></div></div>
   </div>
 
@@ -535,13 +537,13 @@
 
           <!-- CTA BUTTONS -->
           <div class="cta-row">
-            <a href="https://www.dichromusic.com" target="_blank" class="cta-btn primary">
+            <a href="https://www.dichromusic.com" target="_blank" rel="noopener noreferrer" class="cta-btn primary">
               Access EPK <span class="cta-arrow">→</span>
             </a>
-            <a href="https://open.spotify.com/artist/6YkxAVh9bRTzzfcamCTD1X" target="_blank" class="cta-btn">
+            <a href="https://open.spotify.com/artist/6YkxAVh9bRTzzfcamCTD1X" target="_blank" rel="noopener noreferrer" class="cta-btn">
               Stream Now <span class="cta-arrow">→</span>
             </a>
-            <a href="https://psyndica.com" target="_blank" class="cta-btn">
+            <a href="https://psyndica.com" target="_blank" rel="noopener noreferrer" class="cta-btn">
               Psyndica Labs <span class="cta-arrow">→</span>
             </a>
           </div>
@@ -629,19 +631,19 @@
             </div>
           </div>
           <div class="panel-body">
-            <a href="https://open.spotify.com/artist/6YkxAVh9bRTzzfcamCTD1X" target="_blank" class="stream-link">
+            <a href="https://open.spotify.com/artist/6YkxAVh9bRTzzfcamCTD1X" target="_blank" rel="noopener noreferrer" class="stream-link">
               Spotify <span class="stream-link-arrow">→</span>
             </a>
-            <a href="https://music.apple.com/us/artist/dichro/1731975557" target="_blank" class="stream-link">
+            <a href="https://music.apple.com/us/artist/dichro/1731975557" target="_blank" rel="noopener noreferrer" class="stream-link">
               Apple Music <span class="stream-link-arrow">→</span>
             </a>
-            <a href="https://www.beatport.com/artist/dichro/2292188" target="_blank" class="stream-link">
+            <a href="https://www.beatport.com/artist/dichro/2292188" target="_blank" rel="noopener noreferrer" class="stream-link">
               Beatport <span class="stream-link-arrow">→</span>
             </a>
-            <a href="https://soundcloud.com/dichro" target="_blank" class="stream-link">
+            <a href="https://soundcloud.com/dichro" target="_blank" rel="noopener noreferrer" class="stream-link">
               SoundCloud <span class="stream-link-arrow">→</span>
             </a>
-            <a href="https://audius.co/ScarabDubz/ingressout-now-dichro-x-scvrvb" target="_blank" class="stream-link">
+            <a href="https://audius.co/ScarabDubz/ingressout-now-dichro-x-scvrvb" target="_blank" rel="noopener noreferrer" class="stream-link">
               Audius <span class="stream-link-arrow">→</span>
             </a>
           </div>
@@ -654,11 +656,11 @@
       <div class="bottombar-left">
         <span>© 2025–2026 DICHRO</span>
         <span class="sep">|</span>
-        <a href="https://psyndica.com" target="_blank">Psyndica Labs</a>
+        <a href="https://psyndica.com" target="_blank" rel="noopener noreferrer">Psyndica Labs</a>
         <span class="sep">|</span>
-        <a href="https://www.dichromusic.com" target="_blank">EPK</a>
+        <a href="https://www.dichromusic.com" target="_blank" rel="noopener noreferrer">EPK</a>
         <span class="sep">|</span>
-        <a href="https://linktr.ee/dichrosound" target="_blank">Links</a>
+        <a href="https://linktr.ee/dichrosound" target="_blank" rel="noopener noreferrer">Links</a>
       </div>
       <div>Austin, TX // Psyndica Node // Phase 2 Active</div>
     </div>
@@ -754,10 +756,16 @@ function startClock() {
 (function() {
   const canvas = document.getElementById('waveCanvas');
   const ctx    = canvas.getContext('2d');
-  const W = canvas.offsetWidth;
-  canvas.width = W * window.devicePixelRatio;
-  canvas.height = 45 * window.devicePixelRatio;
-  ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  let W = 0;
+
+  function resizeWave() {
+    W = canvas.offsetWidth || 300;
+    canvas.width  = W * window.devicePixelRatio;
+    canvas.height = 45 * window.devicePixelRatio;
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  }
+  resizeWave();
+  window.addEventListener('resize', resizeWave);
 
   let t = 0;
   setInterval(() => {
