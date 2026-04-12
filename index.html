@@ -128,23 +128,6 @@
     .stream-link:hover { border-color:var(--accent); color:var(--accent); }
     .stream-link svg { width:16px; height:16px; flex-shrink:0; }
 
-    /* RELEASE BANNER */
-    .release-banner {
-      margin-bottom: 2rem;
-      border: 1px solid var(--purple-700);
-      overflow: hidden;
-      position: relative;
-    }
-    .release-banner img {
-      width: 100%;
-      display: block;
-      max-height: 480px;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.6s ease;
-    }
-    .release-banner:hover img { transform: scale(1.02); }
-
     /* GALLERY */
     .gallery { background:var(--deep); border-top:1px solid var(--purple-900); }
     .gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2rem; }
@@ -355,9 +338,6 @@
   <section class="releases" id="releases">
     <div class="container">
       <span class="section-label">Latest Release</span>
-      <div class="release-banner">
-        <img src="ingress-banner.jpg" alt="INGRESS — Promo Banner">
-      </div>
       <div class="release-card">
         <div class="release-artwork">
           <img src="ingress-artwork.jpg" alt="INGRESS — DICHRO x SCVRVB">
