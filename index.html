@@ -985,6 +985,40 @@
       margin-top: 0.75rem;
       letter-spacing: 0.08em;
     }
+
+    /* ── Bookings Section ── */
+    .bookings { background: var(--black); }
+    .bookings-intro {
+      max-width: 640px;
+      color: var(--gray);
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.8;
+      font-size: clamp(0.85rem, 2vw, 0.95rem);
+    }
+    .bookings-cta-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+    .bookings-cta {
+      display: inline-block;
+      padding: clamp(0.85rem, 2vw, 1.1rem) clamp(2rem, 4vw, 2.8rem);
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      color: var(--accent);
+      background: transparent;
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(0.8rem, 2vw, 0.95rem);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: background 0.2s, color 0.2s;
+    }
+    @media(hover:hover)and(pointer:fine) {
+      .bookings-cta:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1000,6 +1034,7 @@
         <li><a href="#listen">Listen</a></li>
         <li><a href="#photos">Photos</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#bookings">Bookings</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -1174,7 +1209,7 @@
             <li>2 revisions included</li>
           </ul>
           <div class="service-price">Contact for Quote</div>
-          <a href="mailto:info@dichromusic.com?subject=Stem Mix Inquiry" class="service-cta">Get a Quote</a>
+          <a href="mailto:mastering@dichromusic.com?subject=Stem Mix Inquiry" class="service-cta">Get a Quote</a>
         </div>
 
         <!-- Full Mix -->
@@ -1225,7 +1260,19 @@
 
       <div class="services-footer">
         <p>All projects handled by <a href="https://psyndica.com" target="_blank" rel="noopener" style="color:var(--purple-300);text-decoration:none;">Psyndica Labs</a>. Turnaround varies by scope — inquire for timeline.</p>
-        <a href="mailto:info@dichromusic.com" class="contact-email">info@dichromusic.com</a>
+        <a href="mailto:mastering@dichromusic.com" class="contact-email">mastering@dichromusic.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bookings Section -->
+  <section class="bookings" id="bookings">
+    <div class="container">
+      <span class="section-label">Performances</span>
+      <h2 class="section-title">Live Bookings</h2>
+      <p class="bookings-intro">Available for club sets, festivals, radio, podcast appearances, and collaborative events. Book through Psyndica Labs.</p>
+      <div class="bookings-cta-wrapper">
+        <a href="mailto:booking@dichromusic.com?subject=Booking Inquiry" class="bookings-cta">Request a Booking</a>
       </div>
     </div>
   </section>
@@ -1235,8 +1282,8 @@
       <div class="contact-content">
         <span class="section-label">Contact</span>
         <h2 class="section-title">Get in Touch</h2>
-        <p>For bookings, collaborations, press inquiries, or sync licensing.</p>
-        <a href="mailto:info@dichromusic.com" class="contact-email">info@dichromusic.com</a>
+        <p>For press inquiries, collaborations, licensing, or other inquiries.</p>
+        <a href="mailto:contact@dichromusic.com" class="contact-email">contact@dichromusic.com</a>
         <div class="social-links">
           <a href="https://www.instagram.com/dichro_sound" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
