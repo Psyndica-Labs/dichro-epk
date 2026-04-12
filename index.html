@@ -773,6 +773,185 @@
       .contact-email:hover{color:var(--accent);}
       .ticker-item a:hover{color:var(--accent);}
     }
+
+    /* ── Services Section ── */
+    .services { background: var(--deep); }
+    .services-intro {
+      max-width: 640px;
+      color: var(--gray);
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.8;
+      font-size: clamp(0.85rem, 2vw, 0.95rem);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+    }
+    @media(max-width: 900px) { .services-grid { grid-template-columns: 1fr; max-width: 480px; } }
+    .service-card {
+      position: relative;
+      background: var(--dark);
+      border: 1px solid var(--purple-800);
+      border-radius: 12px;
+      padding: clamp(1.5rem, 3vw, 2rem);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .service-card.featured {
+      border-color: var(--pink-500);
+      background: linear-gradient(160deg, var(--purple-900) 0%, var(--dark) 60%);
+    }
+    .service-badge {
+      position: absolute;
+      top: -0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--pink-500);
+      color: #fff;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      padding: 0.25rem 0.85rem;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .service-icon {
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+    .service-name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+    .service-desc {
+      font-size: 0.8rem;
+      color: var(--gray);
+      line-height: 1.7;
+      flex-grow: 1;
+    }
+    .service-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .service-features li {
+      font-size: 0.78rem;
+      color: var(--purple-200);
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .service-features li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.7rem;
+    }
+    .service-price {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      color: var(--cyan-400);
+      text-transform: uppercase;
+      border-top: 1px solid var(--purple-800);
+      padding-top: 0.85rem;
+      margin-top: 0.25rem;
+    }
+    .service-cta {
+      display: block;
+      text-align: center;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      color: var(--accent);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: background 0.18s, color 0.18s;
+    }
+    .service-card.featured .service-cta {
+      background: var(--accent);
+      color: #fff;
+    }
+    @media(hover:hover)and(pointer:fine) {
+      .service-card:hover { border-color: var(--purple-600); transform: translateY(-3px); }
+      .service-card.featured:hover { border-color: var(--pink-400); }
+      .service-cta:hover { background: var(--accent); color: #fff; }
+      .service-card.featured .service-cta:hover { background: var(--pink-400); border-color: var(--pink-400); }
+    }
+    .services-psyndica-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--purple-900);
+      border: 1px solid var(--purple-700);
+      border-radius: 100px;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--purple-300);
+      margin-bottom: 2rem;
+    }
+    .services-psyndica-badge svg { width: 16px; height: 16px; fill: var(--purple-400); }
+    .services-footer {
+      text-align: center;
+      border-top: 1px solid var(--purple-800);
+      padding-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .services-footer p {
+      font-size: 0.8rem;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Photos Section ── */
+    .photos { background: var(--black); }
+    .photos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    @media(max-width: 768px) { .photos-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media(max-width: 480px) { .photos-grid { grid-template-columns: 1fr; } }
+    .photo-item {
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--dark);
+      border: 1px solid var(--purple-900);
+    }
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    @media(hover:hover)and(pointer:fine) {
+      .photo-item:hover img { transform: scale(1.04); }
+    }
+    .photo-credit {
+      font-size: 0.72rem;
+      color: var(--gray);
+      text-align: right;
+      margin-top: 0.75rem;
+      letter-spacing: 0.08em;
+    }
   </style>
 </head>
 <body>
@@ -786,6 +965,8 @@
         <li><a href="#bio">Bio</a></li>
         <li><a href="#releases">Releases</a></li>
         <li><a href="#listen">Listen</a></li>
+        <li><a href="#photos">Photos</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -910,6 +1091,86 @@
     </div>
   </section>
 
+  <!-- Photos Section -->
+  <section class="photos" id="photos">
+    <div class="container">
+      <span class="section-label">Live</span>
+      <h2 class="section-title">Performance Photos</h2>
+      <div class="photos-grid" id="photos-grid">
+        <div class="photo-item">
+          <img src="photo-redmoon.jpg" alt="Red moon — DICHRO" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="container">
+      <span class="section-label">Powered by Psyndica</span>
+      <h2 class="section-title">Mix &amp; Mastering Services</h2>
+      <p class="services-intro">Professional mixing and mastering for electronic music — from bass-heavy club cuts to intricate experimental compositions. Every project handled with precision by artists who live the culture.</p>
+
+      <div class="services-grid">
+
+        <!-- Stem Mix -->
+        <div class="service-card">
+          <div class="service-icon">🎛</div>
+          <h3 class="service-name">Stem Mix</h3>
+          <p class="service-desc">Clean, balanced stem mixing for pre-arranged stems. Optimized for streaming platforms and club sound systems.</p>
+          <ul class="service-features">
+            <li>Up to 24 stems</li>
+            <li>Frequency balancing &amp; surgical EQ</li>
+            <li>Dynamic control &amp; compression</li>
+            <li>Stereo image optimization</li>
+            <li>2 revisions included</li>
+          </ul>
+          <div class="service-price">Contact for Quote</div>
+          <a href="mailto:info@dichromusic.com?subject=Stem Mix Inquiry" class="service-cta">Get a Quote</a>
+        </div>
+
+        <!-- Full Mix -->
+        <div class="service-card">
+          <div class="service-icon">🎚</div>
+          <h3 class="service-name">Full Mix</h3>
+          <p class="service-desc">Full project mix from raw DAW session or individual tracks. Detailed attention to every layer, transient, and low end translation.</p>
+          <ul class="service-features">
+            <li>Full project mix from session</li>
+            <li>Creative FX &amp; spatial design</li>
+            <li>Sidechain &amp; groove optimization</li>
+            <li>Sub bass translation check</li>
+            <li>3 revisions included</li>
+          </ul>
+          <div class="service-price">Contact for Quote</div>
+          <a href="mailto:info@dichromusic.com?subject=Full Mix Inquiry" class="service-cta">Get a Quote</a>
+        </div>
+
+        <!-- Mix + Master -->
+        <div class="service-card featured">
+          <div class="service-badge">Most Popular</div>
+          <div class="service-icon">💿</div>
+          <h3 class="service-name">Mix + Master</h3>
+          <p class="service-desc">Complete end-to-end production. Mix and master delivered at release-ready loudness for all platforms — streaming, Beatport, vinyl.</p>
+          <ul class="service-features">
+            <li>Full mix included</li>
+            <li>Mastering for all platforms</li>
+            <li>LUFS target: Spotify / Apple / DJ</li>
+            <li>Vinyl-ready cut available</li>
+            <li>Unlimited revisions</li>
+          </ul>
+          <div class="service-price">Contact for Quote</div>
+          <a href="mailto:info@dichromusic.com?subject=Mix+Master Inquiry" class="service-cta">Get a Quote</a>
+        </div>
+
+      </div>
+
+      <div class="services-footer">
+        <p>All projects handled by Psyndica Labs. Turnaround varies by scope — inquire for timeline.</p>
+        <a href="mailto:info@dichromusic.com" class="contact-email">info@dichromusic.com</a>
+      </div>
+    </div>
+  </section>
+
   <section class="contact" id="contact">
     <div class="container">
       <div class="contact-content">
@@ -942,6 +1203,10 @@
         <div class="ticker-item">
           <i class="fas fa-fire"></i>
           <span class="ticker-highlight">NEW RELEASE:</span> INGRESS OUT NOW
+        </div>
+        <div class="ticker-item">
+          <i class="fas fa-sliders"></i>
+          <span class="ticker-highlight">PSYNDICA:</span> MIX &amp; MASTERING SERVICES AVAILABLE
         </div>
         <div class="ticker-item">
           <i class="fab fa-soundcloud"></i>
